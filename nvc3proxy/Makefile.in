@@ -1,0 +1,18 @@
+CC = g++ 
+LIB = -lpthread  -lrt -lz
+LIBPATH=-L../../lib 
+CINC = -I/usr/include -I../comm -I. 
+CXXFLAGS = -Wall  -g   -O2 
+LDFLAGS =  -Wl,-rpath,/usr/local/lib
+
+
+SRC_DIR = .
+OBJ_DIR = .
+VPATH = $(SRC_DIR)\
+        ../comm
+vpath %.o $(OBJ_DIR) 
+SOURCES = $(foreach path, $(VPATH), $(wildcard $(path)/*.cpp))
+OBJECTS = $(notdir $(SOURCES:.cpp=.o))
+
+	
+
